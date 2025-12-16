@@ -2,45 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HTML Todo List</title>
+  <title>Todo App</title>
 </head>
 <body>
 
-<h1>My To-do List</h1>
+<h1>My Todo List</h1>
 
-<!-- Form section -->
-<h2>Add a New Task</h2>
 <form id="taskForm">
-  <label for="taskInput">Task Name:</label><br>
-  <input type="text" id="taskInput" />
+  <input id="titleInput" placeholder="Title" />
   <br><br>
+
+  <textarea id="descriptionInput" placeholder="Description"></textarea>
+  <br><br>
+
+  <input id="datetimeInput" type="datetime-local" />
+  <br><br>
+
   <button type="submit">Add Task</button>
 </form>
 
 <hr>
 
-<!-- Table section -->
-<h2>Tasks Table</h2>
-<table border="1" cellpadding="5">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Task</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="taskTableBody">
-    <!-- Tasks will be inserted here -->
-  </tbody>
-</table>
-
-<hr>
-
-<!-- List section -->
-<h2>Tasks List</h2>
-<ol id="taskList">
-  <!-- Tasks will be inserted here -->
-</ol>
+<ul id="taskList"></ul>
 
 <script src="script.js"></script>
 </body>

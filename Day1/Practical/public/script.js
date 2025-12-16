@@ -1,87 +1,74 @@
-let tasks = [
-  { id: 1, name: "Feed my dog" },
-  { id: 2, name: "Eat more veggies" },
-  { id: 3, name: "Do 50 jumping jacks" }
-];
-
 const taskForm = document.getElementById("taskForm");
-const taskInput = document.getElementById("taskInput");
-const taskTableBody = document.getElementById("taskTableBody");
+const titleInput = document.getElementById("titleInput");
+const descriptionInput = document.getElementById("descriptionInput");
+const datetimeInput = document.getElementById("datetimeInput");
 const taskList = document.getElementById("taskList");
 
-/**
- * Render tasks to table and list
- */
-function renderTasks() {
-  taskTableBody.innerHTML = "";
+// Load tasks on page load
+async function loadTasks() {
+  const res = await fetch("/api/tasks");
+  const tasks = await res.json();
+  renderTasks(tasks);
+}
+
+// Render tasks
+function renderTasks(tasks) {
   taskList.innerHTML = "";
 
   tasks.forEach(task => {
-    // Table row
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>${task.id}</td>
-      <td>${task.name}</td>
-      <td>
-        <button data-id="${task.id}">Delete</button>
-      </td>
-    `;
-
-    row.querySelector("button").addEventListener("click", () => {
-      deleteTask(task.id);
-    });
-
-    taskTableBody.appendChild(row);
-
-    // Ordered list item
     const li = document.createElement("li");
+
     li.innerHTML = `
-      ${task.name}
-      <button>Delete</button>
+      <strong>${task.title}</strong><br>
+      ${task.description}<br>
+      <em>${new Date(task.datetime).toLocaleString()}</em>
     `;
 
-    li.querySelector("button").addEventListener("click", () => {
-      deleteTask(task.id);
-    });
+    const btn = document.createElement("button");
+    btn.textContent = "Delete";
+    btn.onclick = () => deleteTask(task.id);
+
+    li.appendChild(document.createElement("br"));
+    li.appendChild(btn);
 
     taskList.appendChild(li);
   });
 }
 
-/**
- * Add a new task
- */
-function addTask(name) {
-  const newTask = {
-    id: Date.now(),
-    name
-  };
+// Add task
+async function addTask(task) {
+  await fetch("/api/tasks", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(task)
+  });
 
-  tasks.push(newTask);
-  renderTasks();
+  loadTasks();
 }
 
-/**
- * Delete a task by ID
- */
-function deleteTask(id) {
-  tasks = tasks.filter(task => task.id !== id);
-  renderTasks();
+// Delete task
+async function deleteTask(id) {
+  await fetch(`/api/tasks/${id}`, { method: "DELETE" });
+  loadTasks();
 }
 
-/**
- * Form submit handler
- */
-taskForm.addEventListener("submit", function (event) {
+// Form submit
+taskForm.addEventListener("submit", event => {
   event.preventDefault();
 
-  const taskName = taskInput.value.trim();
-  if (!taskName) return;
+  if (!titleInput.value || !datetimeInput.value) {
+    alert("Title and date/time required");
+    return;
+  }
 
-  addTask(taskName);
-  taskInput.value = "";
+  addTask({
+    title: titleInput.value.trim(),
+    description: descriptionInput.value.trim(),
+    datetime: datetimeInput.value
+  });
+
+  taskForm.reset();
 });
 
-// Initial render
-renderTasks();
+// Initial load
+loadTasks();
