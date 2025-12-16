@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Todo List Template</title>
+</head>
+<body>
+
+<h1>My To-do List(Model template)</h1>
+
+<!-- Form section -->
+<h2>Add a New Task</h2>
+<form onsubmit="addTask(); return false;">
+  <label for="taskInput">Task Name:</label><br>
+  <input type="text" id="taskInput" name="taskInput">
+  <br><br>
+  <button type="submit">Add Task</button>
+</form>
+
+<hr>
+
+<!-- Table section -->
+<h2>Tasks Table</h2>
+<table border="1" cellpadding="5">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Task</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Feed my dog</td>
+      <td>
+        <button onclick="deleteTask(1)">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Eat more veggies</td>
+      <td>
+        <button onclick="deleteTask(2)">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Do 50 jumping jacks</td>
+      <td>
+        <button onclick="deleteTask(3)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<!-- List section -->
+<h2>Tasks List</h2>
+<ol>
+  <li>
+    Feed my dog
+    <button onclick="deleteTask(1)">Delete</button>
+  </li>
+  <li>
+    Eat more veggies
+    <button onclick="deleteTask(2)">Delete</button>
+  </li>
+  <li>
+    Do 50 jumping jacks
+    <button onclick="deleteTask(3)">Delete</button>
+  </li>
+</ol>
+
+<script>
+
+  function addTask() {
+    console.log("Added new item to list");
+  }
+
+  function deleteTask(id) {
+    console.log("Deleted item with ID:", id);
+  }
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>
