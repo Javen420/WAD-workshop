@@ -4,32 +4,22 @@ const path = require("path");
 const app = express();
 const PORT = 3000;
 
-// Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-// In-memory data (guaranteed visible on load)
 let tasks = [
   {
     id: 1,
     title: "Feed my dog",
     description: "Use the new food",
     datetime: "2025-12-16T18:30"
-  },
-  {
-    id: 2,
-    title: "Workout",
-    description: "50 jumping jacks",
-    datetime: "2025-12-17T07:00"
   }
 ];
 
-// API: get tasks
 app.get("/api/tasks", (req, res) => {
   res.json(tasks);
 });
 
-// API: add task
 app.post("/api/tasks", (req, res) => {
   const { title, description, datetime } = req.body;
 
@@ -48,15 +38,14 @@ app.post("/api/tasks", (req, res) => {
   res.status(201).json(task);
 });
 
-// API: delete task
 app.delete("/api/tasks/:id", (req, res) => {
   const id = Number(req.params.id);
   tasks = tasks.filter(t => t.id !== id);
   res.sendStatus(204);
 });
 
-// Fallback (serves index.html)
-app.get("*", (req, res) => {
+// ✅ FIXED wildcard route
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
