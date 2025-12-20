@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd</title>
+</head>
+
+<script>
+    function isEven(num){
+        if(num % 2  === 0){
+            return "Even"
+        } else{
+            return "Odd"
+        }
+    }
+
+    // Do not Touch content below this
+    function updatePage(value){
+        if(value === ""){
+            return
+        }
+        if(isEven(value) === "Even"){
+            document.getElementById("text").innerText = "The Number is Even"
+        } else if(isEven(value) === "Odd"){
+            document.getElementById("text").innerText = "The Number is Odd"
+        }
+    }
+</script>
+
+
+
+
+<!--Do not Touch content below this-->
+<body>
+    <div class="container">
+        <label for="isEven">Is this an Even Number?</label>
+        <br>
+        <input id="isEven" type="number"></input>
+        <br>
+        <input type="button" value="Check if Even" onclick="{{updatePage(document.getElementById('isEven').value)}}"></input>
+        <p id="text"></p>
+    </div>
+    
+</body>
+</html>
+<!--Do not Touch content below this-->
+<style>
+    body{
+        display: flex;
+    }
+    .container{
+        width: fit-content;
+        text-align: center;
+        border: 1px solid black;
+        padding: 5px;
+        margin-right: 10px;
+    }
+    .container *{
+        margin-block: 5px;
+    }
+</style>
