@@ -1,6 +1,6 @@
 // Exercise 7: Remove Duplicates
 
-function removeDuplicates(arr, target){
+function removeDuplicates(arr){
     //TODO: Add removeDuplicates content
 }
 

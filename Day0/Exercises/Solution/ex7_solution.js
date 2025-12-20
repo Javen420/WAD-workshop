@@ -1,6 +1,6 @@
 // Exercise 7: Remove Duplicates
 
-function removeDuplicates(arr, target){
+function removeDuplicates(arr){
     let result = []
     for(let i = 0; i < arr.length; i++){
         let exists = false;
