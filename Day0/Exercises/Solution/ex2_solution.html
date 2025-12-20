@@ -1,0 +1,96 @@
+<!-- Exercise 2 (Customer Registration) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Stylesheets/ex2.css" >
+    <title>Forms Exercise</title>
+</head>
+<body>
+    <h1>Exercise 2 (Customer Registration)</h1>
+    <form id="web_form" name="web_form">
+        <span>
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName">
+        </span>
+        <br>
+        <span>
+            <label for="pin">Pin Number: </label>
+            <input type="password" id="pin" name="pin">
+        </span>
+        <br>
+        <span>
+            <label for="location">Location</label>
+            <select form="web_form" id="location" name="location">
+                <option selected hidden>-- Choose a Location --</option>
+                <option>North</option>
+                <option>East</option>
+                <option>Central</option>
+                <option>West</option>
+                <option>South</option>
+            </select>
+        </span>
+        <br>
+        <br>
+        <span class="sideBySide">
+            <label>Please specify your role: </label>
+            <div>
+                <label>
+                    <input type="radio" name="role" value="Cleaner">Cleaner
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="role" value="Maintenance">Maintenance
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="role" value="Accountant">Accountant
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="role" value="Supplier">Supplier
+                </label>
+            </div>
+        </span>
+        <br>
+        <span class="sideBySide">
+            <label>Select the days you are working: </label>
+            <div>
+                <label>
+                    <input type="checkbox" name="service" value="Monday">Monday
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="service" value="Tuesday">Tuesday
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="service" value="Wednesday">Wednesday
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="service" value="Thursday">Thursday
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="service" value="Friday">Friday
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="service" value="Saturday">Saturday
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="service" value="Sunday">Sunday
+                </label>
+                <br>
+            </div>
+        </span>
+        <span>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </span>
+    </form>
+</body>
+</html>

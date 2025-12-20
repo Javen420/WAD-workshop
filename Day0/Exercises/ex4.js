@@ -1,10 +1,28 @@
-// Exercise 4: EvenOrOdd
+//Exercise 4 (Getting Groceries)
 
-function isEven(num){
-    //TODO: Add isEven content
-}
+// Budget
+const budget = 50;
 
-console.log(isEven(4)) //Even
-console.log(isEven(7)) //Odd
+// TODO: Create variables for shopping list prices
+// Japanese Rice: $13, Soy Sauce: $4, Eggs: $6
 
-//In the terminal, enter "node ex4.js" (Without quotes) to run code
+// TODO: Calculate total spent (add all prices)
+
+// TODO: Calculate remaining budget (budget - total spent)
+
+// TODO: Create variables for extra item prices
+// Coke: $12, Chicken Wings: $14
+
+// TODO: Check if remaining budget can afford each extra item (>=)
+
+// TODO: Print the results using console.log()
+
+// Expected output:
+// === GREG'S GROCERY BUDGET ===
+// Budget: $35
+// Total Spent: $23
+// Remaining: $12
+// -----------------------------
+// Can afford Coke ($12): true
+// Can afford Chicken Wings ($14): false
+// =============================
