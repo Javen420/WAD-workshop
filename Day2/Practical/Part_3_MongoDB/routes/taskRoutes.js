@@ -1,24 +1,10 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const path = require("path");
-
 const Task = require("../models/Task");
 
-const app = express();
-const PORT = 3000;
+const router = express.Router();
 
-// Middleware
-app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
-
-// MongoDB connection
-mongoose
-  .connect("mongodb://localhost:27017/todo_app")
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.error("MongoDB connection error:", err));
-
-// API: get all tasks
-app.get("/api/tasks", async (req, res) => {
+// GET all tasks
+router.get("/", async (req, res) => {
   try {
     const tasks = await Task.find().sort({ datetime: 1 });
     res.json(tasks);
@@ -27,8 +13,8 @@ app.get("/api/tasks", async (req, res) => {
   }
 });
 
-// API: add task
-app.post("/api/tasks", async (req, res) => {
+// POST new task
+router.post("/", async (req, res) => {
   const { title, description, datetime } = req.body;
 
   if (!title || !datetime) {
@@ -49,8 +35,8 @@ app.post("/api/tasks", async (req, res) => {
   }
 });
 
-// API: delete task
-app.delete("/api/tasks/:id", async (req, res) => {
+// DELETE task by ID
+router.delete("/:id", async (req, res) => {
   try {
     await Task.findByIdAndDelete(req.params.id);
     res.sendStatus(204);
@@ -59,7 +45,4 @@ app.delete("/api/tasks/:id", async (req, res) => {
   }
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+module.exports = router;
