@@ -1,0 +1,28 @@
+1. Who likes blue?
+    How a database would think:
+    Look at each record
+    Check the Favorite Color field
+    Select records where the value is “Blue”
+    Return the matching names
+
+    Answer:
+    Chris, Riley(2 people)
+
+2. Who has gaming as a hobby?
+    How a database would think:
+    Look at the Hobbies field for each record
+    Check if the list contains “Gaming”
+    Select matching records
+    Return the names
+
+    Answer:
+    Jamie
+
+3. How many people have more than one hobby?
+    How a database would think:
+    Count the number of hobbies per record
+    Identify records with more than one hobby
+    Count those records
+
+    Answer:
+    Maria, Jamie, Pat(3 people)
