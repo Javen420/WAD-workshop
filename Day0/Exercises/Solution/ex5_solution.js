@@ -1,3 +1,4 @@
+//Exercise 5 (Movie Night)
 // Arrays
 const friends = ["Sam", "Rick", "Jordan"];
 const movies = ["Avengers Infinity War", "F1 Movie", "John Wick 4"];
