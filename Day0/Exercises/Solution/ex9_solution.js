@@ -1,6 +1,6 @@
 // Exercise 9 (Papers, Please 3)
 // Today's date (day number)
-const today = 22;
+const today = 24;
 
 // Traveler queue - DO NOT MODIFY
 const travelers = [
