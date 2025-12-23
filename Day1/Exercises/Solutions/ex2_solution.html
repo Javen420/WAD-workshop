@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wistonian</title>
+</head>
+<body>
+    <h1 id="restaurant-name">The Wistonian</h1>
+
+    <h2 id="subheading">Forty Years of Perfection</h2>
+
+    <p id="description">Welcome to The Wistonian, home of Chef Edmund Whitmore's legendary cuisine. With over 40 years of culinary mastery, Chef Whitmore transforms the finest ingredients into edible works of art. Every dish tells a story of tradition, passion, and perfection.</p>
+
+    <h3>House Rules:</h3>
+    <ul id="house-rules">
+        <li id="rule-1">Formal attire is required</li>
+        <li id="rule-2">Photography of dishes is prohibited</li>
+        <li id="rule-3">Mobile phones must be silenced and kept out of sight</li>
+    </ul>
+
+    <h3>Our Top 3 Dishes:</h3>
+    <ol id="top-dishes">
+        <li>Pan-Roasted Dover Sole</li>
+        <li>Wagyu Beef Tenderloin</li>
+        <li>Tarte Tatin</li>
+    </ol>
+
+    <h3>Full Menu</h3>
+    <table border="1" id="menu-table">
+        <tr>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        <tr id="foie-gras">
+            <td>Seared Foie Gras</td>
+            <td>Pan-seared duck liver with fig compote and brioche toast</td>
+            <td>$38.00</td>
+        </tr>
+        <tr id="beef-tartare">
+            <td>Beef Tartare</td>
+            <td>Hand-cut wagyu beef with quail egg, capers, and truffle aioli</td>
+            <td>$36.00</td>
+        </tr>
+        <tr id="wagyu">
+            <td>Wagyu Beef Tenderloin</td>
+            <td>A5 Japanese wagyu with red wine reduction and bone marrow butter</td>
+            <td class="wagyu-price">$125.00</td>
+        </tr>
+        <tr id="dover-sole">
+            <td>Pan-Roasted Dover Sole</td>
+            <td>Whole Dover sole with brown butter, capers, and lemon</td>
+            <td>$85.00</td>
+        </tr>
+        <tr id="lobster">
+            <td>Lobster Thermidor</td>
+            <td>Whole Maine lobster with creamy gruyère sauce and duchess potatoes</td>
+            <td>$98.00</td>
+        </tr>
+        <tr id="mille-feuille">
+            <td>Mille-Feuille</td>
+            <td>Crispy puff pastry layered with diplomat cream and fresh berries</td>
+            <td>$26.00</td>
+        </tr>
+        <tr id="tarte-tatin">
+            <td>Tarte Tatin</td>
+            <td class="tarte-description">Caramelised apple tart with calvados ice cream</td>
+            <td>$22.00</td>
+        </tr>
+    </table>
+
+    <script>
+        // ============ SELECT & MODIFY ============
+        
+        // Change the subheading text to "Forty Years of Excellence"
+        const subheading = document.getElementById("subheading");
+        subheading.textContent = "Forty Years of Excellence";
+
+        // Update the Wagyu Beef Tenderloin price to "$135.00"
+        const wagyuPrice = document.querySelector(".wagyu-price");
+        wagyuPrice.textContent = "$135.00";
+
+        // Change the Tarte Tatin description
+        const tarteDescription = document.querySelector(".tarte-description");
+        tarteDescription.textContent = "Caramelised apple tart with vanilla bean ice cream";
+
+        // ============ ADD ELEMENTS ============
+
+        // Add a new house rule
+        const houseRules = document.getElementById("house-rules");
+        const newRule = document.createElement("li");
+        newRule.textContent = "Guests must be seated within 15 minutes of reservation";
+        houseRules.appendChild(newRule);
+
+        // Add a new dish to the menu table
+        const menuTable = document.getElementById("menu-table");
+        const newRow = document.createElement("tr");
+
+        const newItem = document.createElement("td");
+        newItem.textContent = "Citrus Duck";
+        newRow.appendChild(newItem);
+
+        const newDescription = document.createElement("td");
+        newDescription.textContent = "Pan-seared duck breast with blood orange reduction and honey";
+        newRow.appendChild(newDescription);
+
+        const newPrice = document.createElement("td");
+        newPrice.textContent = "$78.00";
+        newRow.appendChild(newPrice);
+
+        menuTable.appendChild(newRow);
+
+        // Add a footer paragraph
+        const footer = document.createElement("p");
+        footer.textContent = "For reservations, please call +65 6123 4567";
+        document.body.appendChild(footer);
+
+        // Create a "Make Reservation" button and append it to the body
+        const reservationBtn = document.createElement("button");
+        reservationBtn.textContent = "Make Reservation";
+        document.body.appendChild(reservationBtn);
+
+        // ============ DELETE ELEMENTS ============
+
+        // Remove the "Beef Tartare" row from the menu table
+        const beefTartare = document.getElementById("beef-tartare");
+        beefTartare.remove();
+
+        // Remove the second house rule (photography prohibition)
+        const rule2 = document.getElementById("rule-2");
+        rule2.remove();
+
+        // ============ EVENT HANDLER ============
+
+        // Add a click event listener to the reservation button
+        reservationBtn.addEventListener("click", function() {
+            alert("Thank you for your interest! Please call us at +65 6123 4567");
+        });
+
+    </script>
+</body>
+</html>
