@@ -6,7 +6,7 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from public folder
-app.use(express.static("public/ex4"));
+app.use(express.static("ex4"));
 
 // Store reservations in memory
 const reservations = [];

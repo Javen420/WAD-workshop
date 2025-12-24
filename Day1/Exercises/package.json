@@ -8,7 +8,9 @@
     "ex3": "nodemon ex3.js",
     "ex3_solution": "cd Solutions && nodemon ex3_solution.js",
     "ex4": "nodemon ex4.js",
-    "ex4_solution": "cd Solutions && nodemon ex4_solution.js"
+    "ex4_solution": "cd Solutions && nodemon ex4_solution.js",
+    "ex5": "nodemon ex5.js",
+    "ex5_solution": "cd Solutions && nodemon ex5_solution.js"
   },
   "author": "",
   "license": "ISC",
