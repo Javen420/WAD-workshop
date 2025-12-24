@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wistonian - Reservation Failed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #1a1a1a;
+            color: #d4af37;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #2a2a2a;
+            padding: 60px 40px;
+            border: 2px solid #8b0000;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #8b0000;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            color: #8b0000;
+        }
+        .message {
+            margin-bottom: 30px;
+            color: #888;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #d4af37;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #b8960c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">✕</div>
+        <h1>RESERVATION FAILED</h1>
+        <p class="message">
+            We apologise, but we could not process your reservation.<br><br>
+            Please ensure all fields are filled correctly.<br>
+            Reservations are available 17:00 - 22:00 for parties up to 8 guests.
+        </p>
+        <a href="/">TRY AGAIN</a>
+    </div>
+</body>
+</html>

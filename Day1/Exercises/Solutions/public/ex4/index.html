@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wistonian - Reservations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #1a1a1a;
+            color: #d4af37;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #2a2a2a;
+            padding: 40px;
+            border: 2px solid #d4af37;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+        }
+        .subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #888;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a1a1a;
+            border: 1px solid #d4af37;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #fff;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #d4af37;
+            color: #1a1a1a;
+            border: none;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #b8960c;
+        }
+        .hours {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE WISTONIAN</h1>
+        <p class="subtitle">Forty Years of Excellence</p>
+        
+        <form action="/reservations" method="POST">
+            <div class="form-group">
+                <label for="name">FULL NAME</label>
+                <input type="text" id="name" name="name" placeholder="John Smith">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">EMAIL ADDRESS</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="date">DATE</label>
+                <select id="date" name="date">
+                    <option value="">Select a date</option>
+                    <option value="2025-01-10">Friday, 10 January 2025</option>
+                    <option value="2025-01-11">Saturday, 11 January 2025</option>
+                    <option value="2025-01-12">Sunday, 12 January 2025</option>
+                    <option value="2025-01-13">Monday, 13 January 2025</option>
+                    <option value="2025-01-14">Tuesday, 14 January 2025</option>
+                    <option value="2025-01-15">Wednesday, 15 January 2025</option>
+                    <option value="2025-01-16">Thursday, 16 January 2025</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="time">TIME</label>
+                <select id="time" name="time">
+                    <option value="">Select a time</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                    <option value="21:30">21:30</option>
+                    <option value="22:00">22:00</option>
+                    <option value="23:00">23:00</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="guests">NUMBER OF GUESTS</label>
+                <select id="guests" name="guests">
+                    <option value="">Select guests</option>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+                    <option value="7">7 Guests</option>
+                    <option value="8">8 Guests</option>
+                    <option value="10">10 Guests</option>
+                    <option value="12">12 Guests</option>
+                </select>
+            </div>
+            
+            <button type="submit">RESERVE A TABLE</button>
+        </form>
+        
+        <p class="hours">Reservations available 17:00 - 22:00 | Parties up to 8 guests</p>
+    </div>
+</body>
+</html>

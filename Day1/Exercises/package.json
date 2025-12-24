@@ -1,0 +1,22 @@
+{
+  "name": "exercises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ex3": "nodemon ex3.js",
+    "ex3_solution": "cd Solutions && nodemon ex3_solution.js",
+    "ex4": "nodemon ex4.js",
+    "ex4_solution": "cd Solutions && nodemon ex4_solution.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
