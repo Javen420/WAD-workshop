@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wistonian - Private Events</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #1a1a1a;
+            color: #d4af37;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #2a2a2a;
+            padding: 40px;
+            border: 2px solid #d4af37;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+        }
+        .subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #888;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a1a1a;
+            border: 1px solid #d4af37;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #fff;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #d4af37;
+            color: #1a1a1a;
+            border: none;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #b8960c;
+        }
+        .info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>THE WISTONIAN</h1>
+        <p class="subtitle">Private Events</p>
+        
+        <form action="/book-event" method="POST">
+            <div class="form-group">
+                <label for="name">FULL NAME</label>
+                <input type="text" id="name" name="name" placeholder="John Smith">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">EMAIL ADDRESS</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="eventType">EVENT TYPE</label>
+                <select id="eventType" name="eventType">
+                    <option value="">Select event type</option>
+                    <option value="birthday">Birthday Celebration</option>
+                    <option value="anniversary">Anniversary Dinner</option>
+                    <option value="corporate">Corporate Event</option>
+                    <option value="wedding">Wedding Reception</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">EVENT DATE</label>
+                <select id="date" name="date">
+                    <option value="">Select a date</option>
+                    <option value="2025-02-01">Saturday, 1 February 2025</option>
+                    <option value="2025-02-08">Saturday, 8 February 2025</option>
+                    <option value="2025-02-15">Saturday, 15 February 2025</option>
+                    <option value="2025-02-22">Saturday, 22 February 2025</option>
+                    <option value="2025-03-01">Saturday, 1 March 2025</option>
+                    <option value="2025-03-08">Saturday, 8 March 2025</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="guests">NUMBER OF GUESTS</label>
+                <select id="guests" name="guests">
+                    <option value="">Select guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="10">10 Guests</option>
+                    <option value="15">15 Guests</option>
+                    <option value="20">20 Guests</option>
+                    <option value="25">25 Guests</option>
+                    <option value="30">30 Guests</option>
+                    <option value="40">40 Guests</option>
+                    <option value="50">50 Guests</option>
+                    <option value="60">60 Guests</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="budget">BUDGET ($)</label>
+                <select id="budget" name="budget">
+                    <option value="">Select budget</option>
+                    <option value="500">$500</option>
+                    <option value="750">$750</option>
+                    <option value="1000">$1,000</option>
+                    <option value="2000">$2,000</option>
+                    <option value="3000">$3,000</option>
+                    <option value="5000">$5,000</option>
+                    <option value="10000">$10,000</option>
+                </select>
+            </div>
+            
+            <button type="submit">REQUEST BOOKING</button>
+        </form>
+        
+        <p class="info">Private events require 10-50 guests | Minimum budget $1,000</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wistonian - Guest Counter</title>
+</head>
+<body>
+    <h1>The Wistonian</h1>
+    <h2>Guest Counter</h2>
+    <p>Welcome Jenny! Use this counter to track today's guests.</p>
+
+    <h3>Current Guests</h3>
+    
+    <button id="decrease-btn">-</button>
+    <span id="guest-count">0</span>
+    <button id="increase-btn">+</button>
+
+    <p id="message"></p>
+
+    <script>
+        // Starting guest count
+        let count = 0;
+
+        // Select elements
+        const guestCountDisplay = document.getElementById("guest-count");
+        const messageDisplay = document.getElementById("message");
+        const decreaseBtn = document.getElementById("decrease-btn");
+        const increaseBtn = document.getElementById("increase-btn");
+
+        // Add click event listener to increase button
+        increaseBtn.addEventListener("click", function() {
+            if (count < 25) {
+                count = count + 1;
+                guestCountDisplay.textContent = count;
+                messageDisplay.textContent = "";
+            } else {
+                messageDisplay.textContent = "A Maximum of 25 are scheduled to arrive today.";
+            }
+        });
+
+        // Add click event listener to decrease button
+        decreaseBtn.addEventListener("click", function() {
+            if (count > 0) {
+                count = count - 1;
+                guestCountDisplay.textContent = count;
+                messageDisplay.textContent = "";
+            } else {
+                messageDisplay.textContent = "The restaurant cannot have less than 0 guests.";
+            }
+        });
+
+    </script>
+</body>
+</html>
