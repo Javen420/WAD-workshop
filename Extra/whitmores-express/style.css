@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Header */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #d4af37;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.game-header h1 {
+    font-size: 1.5rem;
+}
+
+.stats {
+    display: flex;
+    gap: 25px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Screens */
+.screen {
+    background-color: #2a2a2a;
+    padding: 30px;
+    min-height: 400px;
+}
+
+.screen.hidden {
+    display: none;
+}
+
+.screen-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    text-align: center;
+}
+
+.screen-content h2 {
+    font-size: 2rem;
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+.screen-content p {
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.screen-content code {
+    background-color: #333;
+    padding: 2px 6px;
+    color: #4ade80;
+}
+
+/* Instructions */
+.instructions {
+    background-color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.instructions h3 {
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+.instructions ul {
+    list-style: none;
+}
+
+.instructions li {
+    padding: 5px 0;
+    color: #ccc;
+}
+
+.instructions li::before {
+    content: "• ";
+    color: #d4af37;
+}
+
+/* Buttons */
+.btn-primary {
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #d4af37;
+    color: #1a1a1a;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-primary:hover {
+    background-color: #b8960c;
+}
+
+/* Customer Section */
+.customer-section {
+    margin-bottom: 20px;
+}
+
+.customer-section h2,
+.kitchen-section h2 {
+    color: #d4af37;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.customer-display {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #333;
+    padding: 20px;
+}
+
+.customer-avatar {
+    font-size: 3rem;
+}
+
+.customer-order h3 {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.order-items {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.order-details {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.order-tag {
+    background-color: #444;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.order-tag.highlight {
+    background-color: #d4af37;
+    color: #1a1a1a;
+}
+
+.order-tag.hidden {
+    display: none;
+}
+
+/* Kitchen Section */
+.kitchen-section {
+    background-color: #333;
+    padding: 20px;
+}
+
+.kitchen-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.prep-result {
+    background-color: #444;
+    padding: 12px;
+}
+
+.prep-label {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.prep-value {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.prep-result.hidden {
+    display: none;
+}
+
+/* Feedback */
+.feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.feedback.hidden {
+    display: none;
+}
+
+.feedback-content {
+    background-color: #2a2a2a;
+    padding: 30px 50px;
+    text-align: center;
+    border: 2px solid #444;
+}
+
+.feedback-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.feedback-icon.success {
+    color: #4ade80;
+}
+
+.feedback-icon.error {
+    color: #ef4444;
+}
+
+.feedback-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.feedback-message.success {
+    color: #4ade80;
+}
+
+.feedback-message.error {
+    color: #ef4444;
+}
+
+/* Game Over */
+.final-stats {
+    display: flex;
+    gap: 30px;
+    margin: 25px 0;
+}
+
+.final-stat {
+    text-align: center;
+    background-color: #333;
+    padding: 15px 25px;
+}
+
+.final-label {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.final-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+.rating {
+    background-color: #333;
+    padding: 15px 30px;
+    margin-bottom: 15px;
+}
+
+.rating h3 {
+    color: #d4af37;
+    margin-bottom: 8px;
+}
+
+.rating p {
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .game-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .customer-display {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .kitchen-display {
+        grid-template-columns: 1fr;
+    }
+
+    .final-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitmore's Express</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <h1>🍔 Whitmore's Express</h1>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-label">Score</span>
+                    <span class="stat-value" id="score">$0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Orders</span>
+                    <span class="stat-value" id="orders-completed">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Time</span>
+                    <span class="stat-value" id="timer">5:00</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen">
+            <div class="screen-content">
+                <h2>Welcome to Whitmore's Express!</h2>
+                <p>Chef Whitmore needs your help to handle the lunch rush!</p>
+                <p>Complete customer orders by writing the <code>prepareOrder()</code> function.</p>
+                <div class="instructions">
+                    <h3>How to Play:</h3>
+                    <ul>
+                        <li>Customers will arrive with orders</li>
+                        <li>Your function processes each order</li>
+                        <li>Match the order correctly to earn money</li>
+                        <li>Serve as many customers as possible in 5 minutes!</li>
+                    </ul>
+                </div>
+                <button id="start-btn" class="btn-primary">Start Lunch Rush!</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <!-- Customer Queue -->
+            <section class="customer-section">
+                <h2>Current Customer</h2>
+                <div class="customer-display">
+                    <div class="customer-avatar" id="customer-avatar">😊</div>
+                    <div class="customer-order">
+                        <h3>Order:</h3>
+                        <div class="order-items" id="order-items">🍔🍟🥤</div>
+                        <div class="order-details" id="order-details">
+                            <span class="order-tag" id="order-size">Medium</span>
+                            <span class="order-tag hidden" id="order-combo">Combo</span>
+                            <span class="order-tag hidden" id="order-special">No onions</span>
+                            <span class="order-tag hidden" id="order-peak">🔥 Peak Hour</span>
+                            <span class="order-tag hidden" id="order-loyalty">⭐ Loyalty</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kitchen Display -->
+            <section class="kitchen-section">
+                <h2>Your Preparation</h2>
+                <div class="kitchen-display">
+                    <div class="prep-result">
+                        <div class="prep-label">Items:</div>
+                        <div class="prep-value" id="prep-items">-</div>
+                    </div>
+                    <div class="prep-result">
+                        <div class="prep-label">Emojis:</div>
+                        <div class="prep-value" id="prep-emojis">-</div>
+                    </div>
+                    <div class="prep-result">
+                        <div class="prep-label">Total Price:</div>
+                        <div class="prep-value" id="prep-price">-</div>
+                    </div>
+                    <div class="prep-result hidden" id="prep-discount-row">
+                        <div class="prep-label">Discount:</div>
+                        <div class="prep-value" id="prep-discount">-</div>
+                    </div>
+                    <div class="prep-result hidden" id="prep-special-row">
+                        <div class="prep-label">Special:</div>
+                        <div class="prep-value" id="prep-special">-</div>
+                    </div>
+                    <div class="prep-result hidden" id="prep-time-row">
+                        <div class="prep-label">Prep Time:</div>
+                        <div class="prep-value" id="prep-time">-</div>
+                    </div>
+                    <div class="prep-result hidden" id="prep-errors-row">
+                        <div class="prep-label">Errors:</div>
+                        <div class="prep-value" id="prep-errors">-</div>
+                    </div>
+                </div>
+                <button id="serve-btn" class="btn-primary">Serve Order</button>
+            </section>
+
+            <!-- Result Feedback -->
+            <div id="feedback" class="feedback hidden">
+                <div class="feedback-content">
+                    <div class="feedback-icon" id="feedback-icon">✓</div>
+                    <div class="feedback-message" id="feedback-message">Correct!</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameover-screen" class="screen hidden">
+            <div class="screen-content">
+                <h2>⏰ Time's Up!</h2>
+                <div class="final-stats">
+                    <div class="final-stat">
+                        <span class="final-label">Total Earnings</span>
+                        <span class="final-value" id="final-score">$0</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="final-label">Orders Completed</span>
+                        <span class="final-value" id="final-orders">0</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="final-label">Accuracy</span>
+                        <span class="final-value" id="final-accuracy">0%</span>
+                    </div>
+                </div>
+                <div class="rating" id="rating">
+                    <h3>Chef Whitmore says:</h3>
+                    <p id="rating-message">Good job!</p>
+                </div>
+                <button id="restart-btn" class="btn-primary">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="solution.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
