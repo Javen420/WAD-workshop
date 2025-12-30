@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= restaurant.name %> - Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #1a1a1a;
+            color: #d4af37;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #d4af37;
+        }
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-style: italic;
+            color: #888;
+            font-size: 1.2rem;
+        }
+        .category {
+            margin-bottom: 40px;
+        }
+        .category h2 {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dotted #444;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .item-name {
+            font-size: 1.1rem;
+        }
+        .item-price {
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .featured {
+            color: #ffd700;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+        .sold-out {
+            text-decoration: line-through;
+            color: #666;
+        }
+        .sold-out-label {
+            color: #8b0000;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #d4af37;
+            text-align: center;
+            color: #888;
+        }
+        footer p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- TODO: Include the header  -->
+        <!-- Hint: Use include('header', { restaurant: restaurant }) -->
+
+
+        <!-- TODO: Loop through each category -->
+        <!-- Hint: Use categories.forEach(function(category) { }) -->
+        
+            <!-- TODO: Create a div with class "category" -->
+
+            <!-- TODO: Display category name as h2 (use .toUpperCase()) -->
+
+            
+            <!-- TODO: Loop through menuItems -->
+            <!-- Hint: Use menuItems.forEach(function(item) { }) -->
+            
+                <!-- TODO: Check if item.category matches the current category -->
+                
+                    <!-- TODO: Create a div with class "menu-item" -->
+                    
+                        <!-- TODO: Create a div for the left side containing: -->
+                        <!-- - A span with class "item-name" (add class "sold-out" if not available) -->
+                        <!-- - If featured: show a span with class "featured" containing "★ Chef's Recommendation" -->
+                        <!-- - If not available: show a span with class "sold-out-label" containing "SOLD OUT" -->
+                        
+                        <!-- TODO: Create a span with class "item-price" showing the price -->
+                        <!-- Hint: Use .toFixed(2) to format the price -->
+
+                
+                <!-- TODO: Close the if statement -->
+            
+            <!-- TODO: Close the menuItems loop -->
+
+        <!-- TODO: Close the categories loop -->
+
+
+        <!-- TODO: Include the footer -->
+        <!-- Hint: Use include('footer', { restaurant: restaurant }) -->
+
+    </div>
+</body>
+</html>

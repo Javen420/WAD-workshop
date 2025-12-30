@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= restaurant.name %> - Weekly Specials</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #1a1a1a;
+            color: #d4af37;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #d4af37;
+        }
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-style: italic;
+            color: #888;
+            font-size: 1.2rem;
+        }
+        h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+        .special-item {
+            background-color: #2a2a2a;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #d4af37;
+        }
+        .special-item.today {
+            border-left: 4px solid #ffd700;
+            background-color: #3a3a2a;
+        }
+        .special-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .day-name {
+            font-size: 0.9rem;
+            color: #888;
+            letter-spacing: 2px;
+        }
+        .dish-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        .description {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        .badge {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+        .badge-today {
+            background-color: #ffd700;
+            color: #1a1a1a;
+        }
+        .badge-premium {
+            background-color: #8a2be2;
+            color: #fff;
+        }
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #d4af37;
+            text-align: center;
+            color: #888;
+        }
+        footer p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- TODO: Include the header partial -->
+        <!-- Hint: Use include('header', { restaurant: restaurant }) -->
+
+
+        <h2>WEEKLY SPECIALS</h2>
+
+        <!-- TODO: Loop through each special -->
+        <!-- Hint: Use specials.forEach(function(special) { }) -->
+
+            <!-- TODO: Create a div with class "special-item" -->
+            <!-- Add class "today" if special.day matches today -->
+            <!-- Hint: Use a ternary operator: special.day === today ? 'today' : '' -->
+
+                <!-- TODO: Create the special-header div containing: -->
+                <!-- - A span with class "day-name" showing the day -->
+                <!-- - A div containing badges: -->
+                <!--   - If special.day matches today: show "⭐ Today's Special" badge with class "badge badge-today" -->
+                <!--   - If special.price is over 100: show "💎 Premium" badge with class "badge badge-premium" -->
+
+
+                <!-- TODO: Display the dish name in a div with class "dish-name" -->
+
+
+                <!-- TODO: Display the description in a div with class "description" -->
+
+
+                <!-- TODO: Display the price in a div with class "price" -->
+                <!-- Hint: Use .toFixed(2) to format the price -->
+
+
+        <!-- TODO: Close the loop -->
+
+
+        <!-- TODO: Include the footer partial -->
+        <!-- Hint: Use include('footer', { restaurant: restaurant }) -->
+
+    </div>
+</body>
+</html>
