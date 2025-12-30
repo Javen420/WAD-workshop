@@ -1,3 +1,4 @@
-Alex's favorite color is blue
-Bob's favorite color is yellow
-Catherine's favorite color is orange
+Alex,blue
+Jordan,green
+Taylor,red
+Morgan,blue
