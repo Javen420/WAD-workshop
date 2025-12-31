@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <form> <!-- Form element -->
+        <!-- Text input fields for first and last name -->
+        <div>
+            
+            <label for="fname">First name:</label>
+            <input  id="fname" name="fname" type="text">
+        </div>
+        <div>
+            <label for="lname">Last name:</label>
+            <input  id="lname" name="lname" type="text">
+        </div>
+    </form>
+    <br> <!-- Line break -->
+    <hr> <!-- Horizontal rule -->
+    <br>
+    <!-- Common Input Types -->
+     <form>
+        <div>
+            <!-- Email input field -->
+            <label for="email">Email:</label> <!-- Email input field -->
+            <input id="email" name="email" type="email"> <!-- Text input field for email -->
+        </div>
+        <div>
+            <!-- Password input field -->
+            <label for="password">Password:</label> <!-- Password input field -->
+            <input id="password" name="password" type="password"> <!-- Text input field for password -->
+        </div>
+        <div>
+            <!-- Number input field -->
+            <label for="age">Age:</label> <!-- Number input field -->
+            <input id="age" name="age" type="number" min="1" max="120"> <!-- Number input field for age -->
+        </div>
+        <div>
+            <!-- Date input field -->
+            <label for="dob">Date of Birth:</label> <!-- Date input field -->
+            <input id="dob" name="dob" type="date"> <!-- Date input field for date of birth -->
+        </div>
+        <div>
+            <!-- Time input field -->
+            <label for="appt">Select a time:</label> <!-- Time input field -->
+            <input id="appt" name="appt" type="time"> <!-- Time input field for appointment -->
+        </div>
+        <div>
+            <!-- URL input field -->
+            <label for="website">Website:</label> <!-- URL input field -->
+            <input id="website" name="website" type="url"> <!-- Text input field for website URL -->
+        </div>
+        <div>
+            <!-- Range input field -->
+            <label for="range">Range:</label> <!-- Range input field -->
+            <input id="range" name="range" type="range" min="0" max="100"> <!-- Range input field -->
+        </div>
+        <div>
+            <!--Radio buttons-->
+            <!--Radio buttons must have the same name to be grouped together -->
+            <label for="radio">Radio</label> <!-- Radio buttons -->
+            <input id="radio" name="radio" type="radio" value="option1"> Option 1 <!-- First radio button -->
+            <input id="radio" name="radio" type="radio" value="option2"> Option 2 <!-- Second radio button -->
+        </div>
+        <div>
+            <!--Checkboxes-->
+            <!--Checkboxes must have the same name to be grouped together -->
+            <label for="checkbox">Checkbox</label> <!-- Checkboxes -->
+            <input id="checkbox" name="checkbox" type="checkbox" value="check1"> Check 1
+            <input id="checkbox" name="checkbox" type="checkbox" value="check2"> Check 2
+        </div>
+        <div>
+            <!--File upload-->
+            <label for="file">Upload a file:</label>
+            <input type="file" id="file" name="file">
+        </div>
+        <div>
+            <!-- Submit and Reset buttons -->
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+     </form>
+</body>
+</html>
+
+<style>
+    form div {
+        margin-bottom: 10px;
+    }
+</style>
