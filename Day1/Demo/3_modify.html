@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modify Element</title>
 </head>
 <body>
     <h1>Modifying Elements</h1>
-    <!-- Modify Elements -->​
-    <p id="p-edit">This is MY content!</p>​
+    <!-- Modify Elements -->
+    <p id="p-edit">This is MY content!</p>
 
     <a id="a-edit" href="https://yahoo.com">Link!</a>
 </body>
 </html>
+
+<script>
+  const para = document.getElementById("p-edit");
+  para.innerText = "This is YOUR content?";
+
+  const link = document.getElementById("a-edit");
+  link.href = "https://google.com";
+
+</script>
