@@ -1,0 +1,30 @@
+{
+  "name": "exercises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ex3": "nodemon Exercises/ex3.js",
+    "ex3_solution": "nodemon Exercises/Solutions/ex3_solution.js",
+    "ex3.5": "nodemon Exercises/ex3.5.js",
+    "ex3.5_solution": "nodemon Exercises/Solutions/ex3.5_solution.js",
+    "ex4": "nodemon Exercises/ex4.js",
+    "ex4_solution": "nodemon Exercises/Solutions/ex4_solution.js",
+    "ex4.5": "nodemon Exercises/ex4.5.js",
+    "ex4.5_solution": "nodemon Exercises/Solutions/ex4.5_solution.js",
+    "ex5": "nodemon Exercises/ex5.js",
+    "ex5_solution": "nodemon Exercises/Solutions/ex5_solution.js",
+    "ex5.5": "nodemon Exercises/ex5.5.js",
+    "ex5.5_solution": "nodemon Exercises/Solutions/ex5.5_solution.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
