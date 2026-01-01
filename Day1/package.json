@@ -5,6 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "demo7": "nodemon Demo/7_server.js",
+    "demo8": "nodemon Demo/8_express.js",
+    "demo9": "nodemon Demo/9_routing.js",
+    "demo10": "nodemon Demo/10_restful.js",
+    "demo11": "nodemon Demo/11_middleware.js",
+    "demo12": "nodemon Demo/12_templating.js",
     "ex3": "nodemon Exercises/ex3.js",
     "ex3_solution": "nodemon Exercises/Solutions/ex3_solution.js",
     "ex3.5": "nodemon Exercises/ex3.5.js",

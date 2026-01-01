@@ -64,6 +64,43 @@
         .js-file a {
             color: #f39c12;
         }
+        .node-file {
+            border-left-color: #1f1cd6;
+        }
+        .node-file a {
+            color: #1f1cd6;
+        }
+        .setup-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .setup-info h3 {
+            color: #444;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .setup-info h3:first-child {
+            margin-top: 0;
+        }
+        .setup-info code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        .setup-info ol, .setup-info ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        .setup-info li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -72,6 +109,37 @@
         <br>
         Click on any file to open it in a new tab.
     </p>
+
+    <h2>Setup Instructions</h2>
+    <div class="setup-info">
+        <h3>Prerequisites</h3>
+        <p>Node.js must be installed on your system to run server-side demos and exercises.</p>
+
+        <h3>First Time Setup</h3>
+        <ol>
+            <li>Open a terminal in the Day1 directory</li>
+            <li>Run: <code>npm install</code></li>
+            <li>Wait for all dependencies to install</li>
+        </ol>
+
+        <h3>Running Node.js Demos</h3>
+        <ul>
+            <li>Demo 7 (HTTP Server): <code>npm run demo7</code></li>
+            <li>Demo 8 (Express Server): <code>npm run demo8</code></li>
+            <li>Open your browser and navigate to <a href="http://127.0.0.1:3000" target="_blank">http://127.0.0.1:3000</a></li>
+            <li>Press <code>Ctrl+C</code> in the terminal to stop the server</li>
+        </ul>
+
+        <h3>Running Node.js Exercises</h3>
+        <ul>
+            <li>Exercise 3: <code>npm run ex3</code></li>
+            <li>Exercise 3.5: <code>npm run ex3.5</code></li>
+            <li>Exercise 4: <code>npm run ex4</code></li>
+            <li>Exercise 5: <code>npm run ex5</code></li>
+            <li>See <code>package.json</code> for all available scripts</li>
+        </ul>
+    </div>
+
     <!--Directory Content-->
     <h2>Demos</h2>
     <ul id="demos">
@@ -93,6 +161,12 @@
             'Demo/4_create.html',
             'Demo/5_remove.html',
             'Demo/6_eventHandler.html',
+            'Demo/7_server.js',
+            'Demo/8_express.js',
+            'Demo/9_routing.js',
+            'Demo/10_restful.js',
+            'Demo/11_middleware.js',
+            'Demo/12_templating.js'
         ];
 
         const exerciseStructure = [
@@ -100,12 +174,12 @@
             'Exercises/ex1.5.html',
             'Exercises/ex2.html',
             'Exercises/ex2.5.html',
-            'js-runner.html?file=Exercises/ex3.js',
-            'js-runner.html?file=Exercises/ex3.5.js',
-            'Exercises/ex4/index.html',
-            'Exercises/ex4.5/index.html',
-            'js-runner.html?file=Exercises/ex5.js',
-            'js-runner.html?file=Exercises/ex5.5.js',
+            'Exercises/ex3.js',
+            'Exercises/ex3.5.js',
+            'Exercises/ex4.js',
+            'Exercises/ex4.5.js',
+            'Exercises/ex5.js',
+            'Exercises/ex5.5.js',
         ];
 
         function generateLinks(containerID, fileList, baseDir) {
@@ -116,22 +190,22 @@
                 const li = document.createElement('li');
                 li.className = 'files';
 
-                // Check if this is a js-runner link
                 let actualFilePath = filePath;
                 let displayPath = filePath;
-                if (filePath.startsWith('js-runner.html?file=')) {
-                    // Extract the actual JS file name from the query parameter
-                    const jsFileName = filePath.split('file=')[1];
-                    actualFilePath = jsFileName;
-                    displayPath = jsFileName;
-                }
 
                 // Determine file type and add appropriate class
                 const ext = actualFilePath.split('.').pop().toLowerCase();
-                if (ext === 'html' || ext === 'htm') {
+                if (ext === 'html') {
                     li.classList.add('html-file');
                 } else if (ext === 'js') {
-                    li.classList.add('js-file');
+                    // Check if this is a Node.js file (Demo or Exercises ex3+)
+                    const isNodeFile = filePath.startsWith('Demo/') ||
+                                      filePath.match(/Exercises\/ex[345]/);
+                    if (isNodeFile) {
+                        li.classList.add('node-file');
+                    } else {
+                        li.classList.add('js-file');
+                    }
                 }
 
                 // Create the full URL
@@ -147,8 +221,23 @@
 
                 // Create link that wraps everything
                 const link = document.createElement('a');
-                link.href = fullUrl;
-                link.target = '_blank'; // Opens in new tab
+
+                // Handle Node.js files differently (demos and exercises ex3+)
+                const isNodeFile = (filePath.startsWith('Demo/') || filePath.match(/Exercises\/ex[345]/)) && ext === 'js';
+                if (isNodeFile) {
+                    link.href = 'http://127.0.0.1:3000';
+                    link.target = '_blank';
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // Extract script name from filename
+                        const scriptName = fileName.replace('.js', '').replace('/', '');
+                        const fileType = filePath.startsWith('Demo/') ? 'demo' : 'exercise';
+                        alert(`To run this ${fileType}:\n\n1. Open terminal in the Day1 directory\n2. Run: npm run ${scriptName}\n3. Then visit http://127.0.0.1:3000 in your browser\n4. If the demo requires you to utilize a route, use Thunder Client or a browser to test the routes.\n5. Press Ctrl+C in terminal to stop the server`);
+                    });
+                } else {
+                    link.href = fullUrl;
+                    link.target = '_blank'; // Opens in new tab
+                }
 
                 // Create filename display
                 const fileNameDiv = document.createElement('div');

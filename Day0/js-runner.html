@@ -88,7 +88,7 @@
 </head>
 <body>
     <div class="breadcrumb">
-        <a href="0_directory.html">← Back to Directory</a>
+        <a href="Demos/0_directory.html">← Back to Directory</a>
     </div>
 
     <h1>JavaScript Demo Runner</h1>
@@ -129,7 +129,7 @@
 
             // Dynamically load the JavaScript file
             const script = document.createElement('script');
-            script.src = `JavaScript/${jsFile}`;
+            script.src = jsFile;
             script.onerror = function() {
                 document.getElementById('status').textContent = 'Error loading file!';
                 document.getElementById('status').style.color = '#dc3545';

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Conditions with EJS -->
+
+    <h4>Dashboard</h4>
+        <div>
+            <% if (user && user.isAdmin) { %>
+                <p>Welcome Admin <%= user.name %></p>
+            <%}%>
+        </div>
+    <p>Welcome Everyone</p>
+    <h4>Shopping List</h4>
+    <!-- <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+        <li>Juice</li>
+    </ul> -->
+    <ul>
+    <% for(let i=0; i<shoppingList.length; i++) { %>
+        <li><%= shoppingList[i] %></li>
+    <% } %>
+    </ul>
+
+    <!-- <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav> -->
+    <!--The <%- syntax is used to include partials -->
+    <%- include('ejs/navbar.ejs') %> <!-- Include the navbar partial -->
+</body>
+</html>
