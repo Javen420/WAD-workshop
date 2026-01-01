@@ -5,19 +5,16 @@ Exercise 5
 SETUP INSTRUCTIONS
 ----------------------------------------------------
 
-1. Create a new project folder
-2. Run the following commands in the terminal:
+1. Navigate to Day2 directory:
+   cd c:\Programming\WAD-workshop\Day2
 
-   npm init -y
-   npm install express express-session
+2. Install dependencies (if not already done):
+   npm install
 
-3. Create a file named app.js
-4. Copy this entire file into app.js
-5. Run the server using:
+3. Run the exercise:
+   npm run ex5
 
-   node app.js
-
-6. Visit http://localhost:3000 in your browser
+4. Visit http://localhost:3000 in your browser
 
 ----------------------------------------------------
 PART 1: SESSION SETUP

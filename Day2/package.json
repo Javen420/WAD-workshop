@@ -1,0 +1,33 @@
+{
+  "name": "wad-workshop-day2",
+  "version": "1.0.0",
+  "description": "Day 2 exercises and practicals for WAD workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Practical/Part_3_MongoDB/server.js",
+    "devstart": "nodemon Practical/Part_3_MongoDB/server.js",
+    "ex4": "node Exercises/ex4.js",
+    "ex5": "node Exercises/ex5.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Javen420/WAD-workshop.git"
+  },
+  "keywords": ["workshop", "node", "express", "mongodb"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Javen420/WAD-workshop/issues"
+  },
+  "homepage": "https://github.com/Javen420/WAD-workshop#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-session": "^1.18.1",
+    "mongoose": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

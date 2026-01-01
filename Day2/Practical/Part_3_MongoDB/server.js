@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 
-const Task = require("../models/Task");
+const Task = require("./models/Task");
 
 const app = express();
 const PORT = 3000;
