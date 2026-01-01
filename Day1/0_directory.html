@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 Directory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        #demos, #exercises {
+            list-style: none;
+            padding: 0;
+        }
+        .files {
+            margin: 8px 0;
+            background: white;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .files:hover {
+            transform: translateX(5px);
+        }
+        .files a {
+            display: block;
+            padding: 12px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .files a:hover {
+            text-decoration: none;
+        }
+        .file-path {
+            color: #666;
+            font-size: 0.85em;
+            margin-top: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .html-file {
+            border-left-color: #28a745;
+        }
+        .html-file a {
+            color: #28a745;
+        }
+        .js-file {
+            border-left-color: #ffc107;
+        }
+        .js-file a {
+            color: #f39c12;
+        }
+    </style>
+</head>
+<body>
+    <h1>Day 1 Directory</h1>
+    <p>This directory contains all the files for Day 1 of the WAD workshop.
+        <br>
+        Click on any file to open it in a new tab.
+    </p>
+    <!--Directory Content-->
+    <h2>Demos</h2>
+    <ul id="demos">
+    </ul>
+
+    <h2>Exercises</h2>
+    <ul id="exercises">
+    </ul>
+
+    <script>
+        // Configuration
+        const BASE_URL = 'http://127.0.0.1:5500';
+        const BASE_DIR = 'Day1';
+
+        const demoStructure = [
+            'Demo/1_netflix.html',
+            'Demo/2_select.html',
+            'Demo/3_modify.html',
+        ];
+
+        const exerciseStructure = [
+            'Exercises/ex1.html',
+            'Exercises/ex1.5.html',
+            'Exercises/ex2.html',
+            'Exercises/ex2.5.html',
+            'js-runner.html?file=Exercises/ex3.js',
+            'js-runner.html?file=Exercises/ex3.5.js',
+            'Exercises/ex4/index.html',
+            'Exercises/ex4.5/index.html',
+            'js-runner.html?file=Exercises/ex5.js',
+            'js-runner.html?file=Exercises/ex5.5.js',
+        ];
+
+        function generateLinks(containerID, fileList, baseDir) {
+            const container = document.getElementById(containerID);
+            container.innerHTML = ''; // Clear existing content
+
+            fileList.forEach(filePath => {
+                const li = document.createElement('li');
+                li.className = 'files';
+
+                // Check if this is a js-runner link
+                let actualFilePath = filePath;
+                let displayPath = filePath;
+                if (filePath.startsWith('js-runner.html?file=')) {
+                    // Extract the actual JS file name from the query parameter
+                    const jsFileName = filePath.split('file=')[1];
+                    actualFilePath = jsFileName;
+                    displayPath = jsFileName;
+                }
+
+                // Determine file type and add appropriate class
+                const ext = actualFilePath.split('.').pop().toLowerCase();
+                if (ext === 'html' || ext === 'htm') {
+                    li.classList.add('html-file');
+                } else if (ext === 'js') {
+                    li.classList.add('js-file');
+                }
+
+                // Create the full URL
+                const fullUrl = `${BASE_URL}/${baseDir}/${filePath}`;
+
+                // Extract filename
+                let fileName = actualFilePath.split('/').pop();
+                // For index.html in folders, show the folder name instead
+                if (fileName === 'index.html') {
+                    const parts = actualFilePath.split('/');
+                    fileName = parts[parts.length - 2] + '/index.html';
+                }
+
+                // Create link that wraps everything
+                const link = document.createElement('a');
+                link.href = fullUrl;
+                link.target = '_blank'; // Opens in new tab
+
+                // Create filename display
+                const fileNameDiv = document.createElement('div');
+                fileNameDiv.textContent = fileName;
+
+                // Create path display
+                const pathDiv = document.createElement('div');
+                pathDiv.className = 'file-path';
+                pathDiv.textContent = displayPath;
+
+                // Append elements
+                link.appendChild(fileNameDiv);
+                link.appendChild(pathDiv);
+                li.appendChild(link);
+                container.appendChild(li);
+            });
+        }
+
+        // Generate links when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            generateLinks('demos', demoStructure, BASE_DIR);
+            generateLinks('exercises', exerciseStructure, BASE_DIR);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Book Shelf</h1>
+    <!--Selecting Elements-->
+    <ul id="shelf">
+        <li class="books">Harry Potter</li>
+        <li class="books">Hunger Games</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    const shelf = document.getElementById('shelf');
+    console.log(shelf.children[0].innerText); // Hunger Games
+
+    const books = document.getElementsByClassName('books');
+    console.log(books[1].innerText); // Hunger Games
+
+    // const shelf = document.querySelector('ul');
+    // console.log(shelf.children[0].innerText); // Harry Potter
+
+    // const books = document.querySelector('li');
+    // console.log(books.innerText); // Harry Potter
+</script>

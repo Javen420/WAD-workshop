@@ -1,31 +1,46 @@
-const petProfile = {
-    name: 'Pancakes',
-    breed: 'Cavalier King Charles',
-    age: 3,
-    vaccinated: true,
-    favorite_foods: ["Chicken", "Salmon", "Carrots"]
-}
+// TODO: Create a pet profile object with the following properties:
+// - name: "Pancakes"
+// - breed: "Cavalier King Charles"
+// - age: 3
+// - vaccinated: true
+// - favourite_foods: ["Chicken", "Salmon", "Carrots"]
 
-console.log("=== PET PROFILE ===");
-console.log("Name: " + petProfile.name);
-console.log("Breed: " + petProfile.breed);
-console.log("Age: " + petProfile.age);
-console.log("Vaccinated: " + petProfile.vaccinated);
-console.log("Favorite Foods: " + petProfile.favorite_foods);
-console.log("===================");
 
-console.log("");
+// TODO: Print the initial pet profile using console.log()
+// Expected output:
+// === PET PROFILE ===
+// Name: Pancakes
+// Breed: Cavalier King Charles
+// Age: 3
+// Vaccinated: true
+// Favourite Foods: Chicken,Salmon,Carrots
+// ===================
 
-petProfile.age = 4;
-petProfile.favorite_foods.push("Scrambled Eggs");
-petProfile.weight = 7.5;
-petProfile.favorite_foods.splice(1,1);
-delete petProfile.vaccinated;
 
-console.log("=== PET PROFILE ===");
-console.log("Name: " + petProfile.name);
-console.log("Breed: " + petProfile.breed);
-console.log("Age: " + petProfile.age);
-console.log("Weight: " + petProfile.weight + "kg")
-console.log("Favorite Foods: " + petProfile.favorite_foods);
-console.log("===================");
+// TODO: Print an empty line using console.log("")
+
+
+// TODO: Update age to 4
+
+
+// TODO: Add "Scrambled Eggs" to favourite_foods using push()
+
+
+// TODO: Remove "Salmon" from favourite_foods using splice() (index 1)
+
+
+// TODO: Add a new property "weight" with value 7.5
+
+
+// TODO: Delete the "vaccinated" property
+
+
+// TODO: Print the updated pet profile using console.log()
+// Expected output:
+// === PET PROFILE ===
+// Name: Pancakes
+// Breed: Cavalier King Charles
+// Age: 4
+// Weight: 7.5kg
+// Favourite Foods: Chicken,Carrots,Scrambled Eggs
+// ===================
