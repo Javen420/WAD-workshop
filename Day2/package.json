@@ -14,7 +14,12 @@
     "type": "git",
     "url": "git+https://github.com/Javen420/WAD-workshop.git"
   },
-  "keywords": ["workshop", "node", "express", "mongodb"],
+  "keywords": [
+    "workshop",
+    "node",
+    "express",
+    "mongodb"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -23,9 +28,13 @@
   },
   "homepage": "https://github.com/Javen420/WAD-workshop#readme",
   "dependencies": {
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "express-session": "^1.18.1",
-    "mongoose": "^9.0.2"
+    "express-sessions": "^1.0.6",
+    "mongoose": "^9.0.2",
+    "multer": "^2.0.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"

@@ -23,5 +23,5 @@ app.get("/", (req, res) => { // Route for root path
 
 
 app.listen(PORT, () => {
-    console.log(`Listening on http://http://127.0.0.1/:${PORT}`); // Log server start message
+    console.log(`Listening on http://127.0.0.1/:${PORT}`); // Log server start message
 });

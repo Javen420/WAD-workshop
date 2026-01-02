@@ -34,7 +34,6 @@
 
 // TODO: Delete the "vaccinated" property
 
-
 // TODO: Print the updated pet profile using console.log()
 // Expected output:
 // === PET PROFILE ===
