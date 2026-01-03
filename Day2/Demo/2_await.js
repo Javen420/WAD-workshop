@@ -10,7 +10,7 @@ function orderItems(){
         console.log("Customer is ordering items...");
         setTimeout(() => {
             console.log("Customer completed ordering items");
-            resolve();
+            res() //What happens if you remove this?
         }, 2000);
     });
 }

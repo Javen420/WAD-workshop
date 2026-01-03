@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 Directory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        #demos, #exercises {
+            list-style: none;
+            padding: 0;
+        }
+        .files {
+            margin: 8px 0;
+            background: white;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .files:hover {
+            transform: translateX(5px);
+        }
+        .files a {
+            display: block;
+            padding: 12px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .files a:hover {
+            text-decoration: none;
+        }
+        .file-path {
+            color: #666;
+            font-size: 0.85em;
+            margin-top: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .html-file {
+            border-left-color: #28a745;
+        }
+        .html-file a {
+            color: #28a745;
+        }
+        .js-file {
+            border-left-color: #ffc107;
+        }
+        .js-file a {
+            color: #f39c12;
+        }
+        .node-file {
+            border-left-color: #1f1cd6;
+        }
+        .node-file a {
+            color: #1f1cd6;
+        }
+        .setup-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .setup-info h3 {
+            color: #444;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .setup-info h3:first-child {
+            margin-top: 0;
+        }
+        .setup-info code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        .setup-info ol, .setup-info ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        .setup-info li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Day 1 Directory</h1>
+    <p>This directory contains all the files for Day 1 of the WAD workshop.
+        <br>
+        Click on any file to open it in a new tab.
+    </p>
+
+    <h2>Setup Instructions</h2>
+    <div class="setup-info">
+        <h3>Prerequisites</h3>
+        <p>Node.js must be installed on your system to run server-side demos and exercises.</p>
+
+        <h3>First Time Setup</h3>
+        <ol>
+            <li>Open a terminal in the Day1 directory</li>
+            <li>Run: <code>npm install</code></li>
+            <li>Wait for all dependencies to install</li>
+        </ol>
+
+        <h3>Running Node.js Demos</h3>
+        <ul>
+            <li>Demo 7 (HTTP Server): <code>npm run demo7</code></li>
+            <li>Demo 8 (Express Server): <code>npm run demo8</code></li>
+            <li>Open your browser and navigate to <a href="http://127.0.0.1:3000" target="_blank">http://127.0.0.1:3000</a></li>
+            <li>Press <code>Ctrl+C</code> in the terminal to stop the server</li>
+        </ul>
+
+        <h3>Running Node.js Exercises</h3>
+        <ul>
+            <li>Exercise 3: <code>npm run ex3</code></li>
+            <li>Exercise 3.5: <code>npm run ex3.5</code></li>
+            <li>Exercise 4: <code>npm run ex4</code></li>
+            <li>Exercise 5: <code>npm run ex5</code></li>
+            <li>See <code>package.json</code> for all available scripts</li>
+        </ul>
+    </div>
+
+    <!--Directory Content-->
+    <h2>Demos</h2>
+    <ul id="demos">
+    </ul>
+
+    <h2>Exercises</h2>
+    <ul id="exercises">
+    </ul>
+
+    <script>
+        // Configuration
+        const BASE_URL = 'http://127.0.0.1:5500';
+        const BASE_DIR = 'Day1';
+
+        const demoStructure = [
+            'Demo/1_promise.js',
+            'Demo/2_await.js',
+            'Demo/3_app.js',
+            'Demo/4_app.js',
+            'Demo/5_CRUD.js',
+            'Demo/6_fileCRUD.js',
+            'Demo/7_fileHandling.js',
+            'Demo/8_sessions.js',
+        ];
+
+        const exerciseStructure = [
+            'Exercises/ex1/ex1.js',
+            'Exercises/ex2/ex2.js',
+            'Exercises/ex3/ex3.js',
+            'Exercises/ex4/ex4.js',
+            'Exercises/ex5/ex5.js',
+            'Exercises/ex6/ex6.js',
+
+        ];
+
+        function generateLinks(containerID, fileList, baseDir) {
+            const container = document.getElementById(containerID);
+            container.innerHTML = ''; // Clear existing content
+
+            fileList.forEach(filePath => {
+                const li = document.createElement('li');
+                li.className = 'files';
+
+                let actualFilePath = filePath;
+                let displayPath = filePath;
+
+                // Determine file type and add appropriate class
+                const ext = actualFilePath.split('.').pop().toLowerCase();
+                if (ext === 'html') {
+                    li.classList.add('html-file');
+                } else if (ext === 'js') {
+                    // Check if this is a Node.js file (Demo or Exercises ex3+)
+                    const isNodeFile = filePath.startsWith('Demo/') ||
+                                      filePath.match(/Exercises\/ex[123456]/);
+                    if (isNodeFile) {
+                        li.classList.add('node-file');
+                    } else {
+                        li.classList.add('js-file');
+                    }
+                }
+
+                // Create the full URL
+                const fullUrl = `${BASE_URL}/${baseDir}/${filePath}`;
+
+                // Extract filename
+                let fileName = actualFilePath.split('/').pop();
+                // For index.html in folders, show the folder name instead
+                if (fileName === 'index.html') {
+                    const parts = actualFilePath.split('/');
+                    fileName = parts[parts.length - 2] + '/index.html';
+                }
+
+                // Create link that wraps everything
+                const link = document.createElement('a');
+
+                // Handle Node.js files differently (demos and exercises ex3+)
+                const isNodeFile = (filePath.startsWith('Demo/') || filePath.match(/Exercises\/ex[123456]/)) && ext === 'js';
+                if (isNodeFile) {
+                    link.href = 'http://127.0.0.1:3000';
+                    link.target = '_blank';
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // Extract script name from filename
+                        const scriptName = fileName.replace('.js', '').replace('/', '');
+                        const fileType = filePath.startsWith('Demo/') ? 'demo' : 'exercise';
+                        const file = filePath.startsWith('Demo/') ? 'demo' : '';
+                        const demo = file + scriptName.split("_")[0]
+                        alert(`To run this ${fileType}:\n\n1. Open terminal in the Day1 directory\n2. Run: npm run ${demo}\n3. Then visit http://127.0.0.1:3000 in your browser\n4. If the demo requires you to utilize a route, use Thunder Client or a browser to test the routes.\n5. Press Ctrl+C in terminal to stop the server`);
+                    });
+                } else {
+                    link.href = fullUrl;
+                    link.target = '_blank'; // Opens in new tab
+                }
+
+                // Create filename display
+                const fileNameDiv = document.createElement('div');
+                fileNameDiv.textContent = fileName;
+
+                // Create path display
+                const pathDiv = document.createElement('div');
+                pathDiv.className = 'file-path';
+                pathDiv.textContent = displayPath;
+
+                // Append elements
+                link.appendChild(fileNameDiv);
+                link.appendChild(pathDiv);
+                li.appendChild(link);
+                container.appendChild(li);
+            });
+        }
+
+        // Generate links when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            generateLinks('demos', demoStructure, BASE_DIR);
+            generateLinks('exercises', exerciseStructure, BASE_DIR);
+        });
+    </script>
+</body>
+</html>

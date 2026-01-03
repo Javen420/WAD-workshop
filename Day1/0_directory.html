@@ -230,7 +230,10 @@
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
                         // Extract script name from filename
-                        const scriptName = fileName.replace('.js', '').replace('/', '');
+                        let scriptName = fileName.replace('.js', '').replace('/', '');
+                        if(scriptName.indexOf('_') > -1){
+                            scriptName = "demo" + scriptName.split("_")[0]
+                        }
                         const fileType = filePath.startsWith('Demo/') ? 'demo' : 'exercise';
                         alert(`To run this ${fileType}:\n\n1. Open terminal in the Day1 directory\n2. Run: npm run ${scriptName}\n3. Then visit http://127.0.0.1:3000 in your browser\n4. If the demo requires you to utilize a route, use Thunder Client or a browser to test the routes.\n5. Press Ctrl+C in terminal to stop the server`);
                     });

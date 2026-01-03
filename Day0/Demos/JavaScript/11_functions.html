@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 11: Functions</title>
+    <link rel="stylesheet" href="../stylesheet/style.css" >
+</head>
+<body>
+    <div class="instructions">
+        <h2>📋 How to View Console Output</h2>
+        <ol>
+            <li>Open your browser's <strong>Developer Tools</strong></li>
+            <li>Click on the <strong>Console</strong> tab</li>
+            <li>You should see the output from the JavaScript file above</li>
+        </ol>
+
+        <div class="keyboard-shortcuts">
+            <strong>Keyboard Shortcuts to Open Developer Tools:</strong>
+            <ul style="margin: 5px 0; padding-left: 20px;">
+                <li><strong>Windows/Linux:</strong> <kbd>F12</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd></li>
+                <li><strong>Mac:</strong> <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>I</kbd></li>
+            </ul>
+            <p style="margin-top: 10px; font-size: 0.95em;">
+                Alternatively, right-click anywhere on the page and select <strong>"Inspect"</strong>, then click the <strong>Console</strong> tab.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+//defining a function
+function metresToFeet(metres) {
+    const feet = metres * 3.28084;
+    return feet;
+}
+
+console.log("5 metres is", metresToFeet(5), "feet"); //calling the function and logging the result
+
+//Function Scope
+let personName = "Cody"
+
+function changeName(name){
+    const newName = `Name: ${name}`;
+    personName = newName
+}
+
+changeName(personName)
+console.log(newName); //What will happen if we try to log newName here?
+
+</script>

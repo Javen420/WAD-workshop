@@ -1,4 +1,6 @@
-require("dotenv").config({ path: "../.env"});
+const path = require('path')
+require("dotenv").config({ path: path.resolve(__dirname,"../.env")});
+
 const express = require("express");
 const MongoStore = require("connect-mongo");
 
@@ -22,7 +24,7 @@ const sessOpt = {
 }
 
 if (app.get("env") == "production"){
-    console.log('test')
+    console.log('In Production')
     app.set("trust proxy", 1);
     sessOpt.cookie.secure = true;
 }

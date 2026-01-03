@@ -1,11 +1,12 @@
 //File CRUD Actions
 const fs = require('fs/promises')
+const path = require('path')
 
 async function main(){
     // Utilize sleep to wait between actions
     // const sleep = () => new Promise((res,rej) => setTimeout(res, 2000));
 
-    const data = await fs.readFile("profile_images/image.jpg");
+    const data = await fs.readFile("./profile_images/image.jpg");
  
     await fs.writeFile("profile_images/image_copy.jpg", data)
   

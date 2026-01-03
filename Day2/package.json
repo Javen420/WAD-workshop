@@ -7,8 +7,27 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node Practical/Part_3_MongoDB/server.js",
     "devstart": "nodemon Practical/Part_3_MongoDB/server.js",
-    "ex4": "node Exercises/ex4.js",
-    "ex5": "node Exercises/ex5.js"
+    "demo1": "cd Demo && nodemon 1_promise.js",
+    "demo2": "cd Demo && nodemon 2_await.js",
+    "demo3": "cd Demo && nodemon 3_app.js",
+    "demo4": "cd Demo && nodemon 4_app.js",
+    "demo5": "cd Demo && nodemon 5_CRUD.js",
+    "demo6": "cd Demo && nodemon 6_fileCRUD.js",
+    "demo7": "cd Demo && nodemon 7_fileHandling.js",
+    "demo8": "cd Demo && nodemon 8_sessions.js",
+    "ex1": "cd Exercises/ex1 && nodemon ex1.js",
+    "ex2": "cd Exercises/ex2 && nodemon ex2.js",
+    "ex3": "cd Exercises/ex3 && nodemon ex3.js",
+    "ex4": "cd Exercises/ex4 && nodemon ex4.js",
+    "ex5": "cd Exercises/ex5 && nodemon ex5.js",
+    "ex6": "cd Exercises/ex6 && nodemon ex6.js",
+    "ex1_solution": "cd Exercises/Solutions/ex1 && nodemon ex1.js",
+    "ex2_solution": "cd Exercises/Solutions/ex2 && nodemon ex2.js",
+    "ex3_solution": "cd Exercises/Solutions/ex3 && nodemon ex3.js",
+    "ex4_solution": "cd Exercises/Solutions/ex4 && nodemon ex4.js",
+    "ex5_solution": "cd Exercises/Solutions/ex5 && nodemon ex5.js",
+    "ex6_solution": "cd Exercises/Solutions/ex6 && nodemon ex6.js"
+
   },
   "repository": {
     "type": "git",
@@ -30,11 +49,13 @@
   "dependencies": {
     "connect-mongo": "^6.0.0",
     "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
     "express": "^5.2.1",
     "express-session": "^1.18.1",
     "express-sessions": "^1.0.6",
     "mongoose": "^9.0.2",
-    "multer": "^2.0.2"
+    "multer": "^2.0.2",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"

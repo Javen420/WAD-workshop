@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Driver Standings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #e10600;
+      border-bottom: 3px solid #e10600;
+      padding-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #333;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+    .error {
+      background-color: #fee;
+      border: 2px solid #e10600;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .fetch-time {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏁 F1 Driver Standings 2025</h1>
+  
+  <% if (typeof standings === 'undefined') { %>
+    <div class="error">
+      <strong>⚠️ Error:</strong> Standings data not provided to the view!<br>
+      Make sure you're passing <code>{ standings: yourData }</code> to res.render()
+    </div>
+  <% } else if (standings && standings.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Driver</th>
+          <th>Team</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% standings.forEach(driver => { %>
+          <tr>
+            <td><strong><%= driver.position %></strong></td>
+            <td><%= driver.name %></td>
+            <td><%= driver.team %></td>
+            <td><%= driver.points %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    
+    <% if (typeof fetchTime !== 'undefined') { %>
+      <div class="fetch-time">
+        ⏱️ Data fetch time: <strong><%= fetchTime %>ms</strong>
+        <% if (typeof fromCached !== 'undefined' && fromCached) { %>
+          | ✅ Served from cache
+        <% } else { %>
+          | 🔄 Fetched fresh data
+        <% } %>
+      </div>
+    <% } %>
+  <% } else { %>
+    <div class="error">
+      <strong>⚠️ Error:</strong> No standings data available.
+    </div>
+  <% } %>
+</body>
+</html>

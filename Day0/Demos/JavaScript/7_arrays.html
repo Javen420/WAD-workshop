@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 7: Arrays</title>
+    <link rel="stylesheet" href="../stylesheet/style.css" >
+</head>
+<body>
+    <div class="instructions">
+        <h2>📋 How to View Console Output</h2>
+        <ol>
+            <li>Open your browser's <strong>Developer Tools</strong></li>
+            <li>Click on the <strong>Console</strong> tab</li>
+            <li>You should see the output from the JavaScript file above</li>
+        </ol>
+
+        <div class="keyboard-shortcuts">
+            <strong>Keyboard Shortcuts to Open Developer Tools:</strong>
+            <ul style="margin: 5px 0; padding-left: 20px;">
+                <li><strong>Windows/Linux:</strong> <kbd>F12</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd></li>
+                <li><strong>Mac:</strong> <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>I</kbd></li>
+            </ul>
+            <p style="margin-top: 10px; font-size: 0.95em;">
+                Alternatively, right-click anywhere on the page and select <strong>"Inspect"</strong>, then click the <strong>Console</strong> tab.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+//Arrays
+let shoppingList = ["apple", "orange", "pear"]; // Create an array named shoppingList
+console.log("Initial shopping list:", shoppingList); // Display the initial array
+console.log("Type of shoppingList:", typeof shoppingList); // Display the type of shoppingList
+
+// Accessing Array Contents
+let friends = ["Bello", "Artie", "Oscar"]; // Create an array named friends
+let userData = ["Cody", 22, true, friends]; // Create a mixed array named userData
+console.log(userData[0]); // Access and display the first element of userData
+console.log(userData[2]); // Access and display the third element of userData
+
+console.log(userData[-1]) // Accessing with negative index returns undefined in JavaScript
+console.log(userData[userData.length - 1][0]); // Returns "Bello"
+console.log(userData.at(-1)[0]); // Returns "Bello"
+
+
+// Manipulating Arrays
+shoppingList = ["Apple", "Pear", "Orange"];
+shoppingList.push("grapes"); //Apple, Pear, Orange, Grapes
+shoppingList[3] = "Durian"; //Apple, Pear, Orange, Durian
+shoppingList[10] = "Pineapple"; //Apple, Pear, Orange, Durian, <6 empty items>, Pineapple
+
+shoppingList.pop(); //Removes Pineapple //Apple, Pear, Orange, Durian, <6 empty items>
+delete shoppingList[3]; //Removes Durian but leaves an empty item //Apple, Pear, Orange, <7 empty items>
+
+console.log("Final shopping list:", shoppingList); // Display the final array
+</script>

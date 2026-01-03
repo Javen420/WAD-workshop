@@ -1,0 +1,11 @@
+#web_form label{
+    display: inline-block;
+    width: 120px;
+}
+#web_form input,select{
+    margin-block: 5px;
+}
+.sideBySide{
+    display: flex; 
+    align-items: center;
+}
